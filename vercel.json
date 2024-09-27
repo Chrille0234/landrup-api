@@ -6,8 +6,5 @@
     "app.js": {
       "maxDuration": 30
     }
-  },
-  "files": [
-    "/storage/database.sqlite3"
-  ]
+  }
 }
