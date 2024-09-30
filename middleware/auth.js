@@ -3,6 +3,7 @@ var { User } = require("../models/models");
 
 function isAuthorized(req, res, next) {
 	if (!req.headers.authorization)
+    
 		return res.status(401).end();
 
 	if (req.headers.authorization.split(" ")[0] !== "Bearer")
@@ -18,6 +19,7 @@ function isRelevantUser(req, res, next) {
 	let reqId = req.params.id;
 	let token = req.headers.authorization.split(" ")[1];
 	let decodedToken = verify(token, process.env.JWT_SECRET);
+  console.log("isRelevantUser")
 	
 	if (decodedToken.data.id !== parseInt(reqId)) return res.status(403).end();
 

@@ -12,6 +12,7 @@ async function getSingleActivity(req, res, next) {
 }
 
 async function getAllActivities(req, res, next) {
+  console.log("når til getAllActivities")
     try {
         let query = req.query.q;
         let whereClause = query ? { name: { [Op.like]: `%${query}%` } } : {};
@@ -19,9 +20,11 @@ async function getAllActivities(req, res, next) {
             where: whereClause,
             include: [ Asset, User ]
         });
+        console.log(activityData)
         res.json(activityData);
     } catch (error) {
         console.error(error);
+        console.log("error getting all actvities")
         res.status(500).end();
     }
 }
