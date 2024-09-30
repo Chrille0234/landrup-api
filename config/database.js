@@ -1,8 +1,9 @@
+var path = require("path")
 var { Sequelize } = require("sequelize");
 var sequelize = new Sequelize({
-	dialect: "sqlite",
-	storage: "./storage/database.sqlite3",
-	logging: false
+    dialect: "sqlite",
+    storage: path.resolve(__dirname, "../storage/database.sqlite3"),
+    logging: false
 });
 
 async function testConnection() {
